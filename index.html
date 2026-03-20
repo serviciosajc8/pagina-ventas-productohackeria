@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crea tu primer producto digital en una tarde con los 17 Prompts Maestros y cinco agentes de Inteligencia Artificial. Sistema paso a paso por $9.">
+    <title>ProductoHacker IA: Sistema de Productos Digitales Por $9</title>
+    
+    <!-- Preloads de alta prioridad (LCP) -->
+    <link rel="preload" as="image" href="https://productohackeria.hackerdeingresos.com/img-webp/mockup-hero.webp">
+    
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://pay.hotmart.com">
+    
+    <!-- Google Fonts Optimizadas (Carga Asíncrona) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap">
+    </noscript>
+
+    <style>
+        :root {
+            --color-purple: #2D1B69;
+            --color-purple-dark: #1f124d;
+            --color-beige: #F5F1E8;
+            --color-green: #00C851;
+            --color-green-hover: #00e65d;
+            --color-orange: #FF6B35;
+            --color-gold: #FFD700;
+            --color-white: #FFFFFF;
+            --color-text-dark: #1a1040;
+            --transition: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--color-white);
+            background-color: var(--color-purple);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; margin-bottom: 1rem; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+        @media (min-width: 768px) { .container { padding: 4rem 1.5rem; } }
+
+        .text-center { text-align: center; }
+        .text-bold { font-weight: 700; }
+        .text-highlight { color: var(--color-gold); }
+
+        /* Hero */
+        .hero { padding-top: 3rem; padding-bottom: 3rem; background: linear-gradient(135deg, var(--color-purple-dark) 0%, var(--color-purple) 100%); min-height: auto; display: flex; align-items: center; }
+        @media (min-width: 992px) { .hero { min-height: 90vh; } }
+        .hero-container { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+        @media (min-width: 992px) { .hero-container { grid-template-columns: 1fr 1fr; text-align: left; } }
+        .hero h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+        .hero h2 { font-size: clamp(1rem, 3vw, 1.4rem); font-weight: 500; opacity: 0.9; line-height: 1.6; }
+        .hero-image-wrapper img { width: 100%; max-width: 550px; aspect-ratio: 1 / 1; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); display: block; margin: 0 auto; transition: transform 0.5s ease; }
+        .hero-image-wrapper:hover img { transform: translateY(-10px); }
+
+        /* Intro Grid */
+        .intro-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 2rem 0; }
+        @media (min-width: 992px) { .intro-grid { grid-template-columns: repeat(3, 1fr); } }
+        .intro-card { padding: 2.5rem 2rem; border-radius: 16px; background: var(--color-purple-dark); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; }
+        .intro-card-gold { border: 3px solid var(--color-gold); box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2); background: linear-gradient(145deg, #1f124d, #0a041a); }
+        .gold-list { list-style: none; margin-top: 1rem; }
+        .gold-list li { background: rgba(255, 215, 0, 0.1); padding: 0.6rem; border-radius: 8px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.95rem; }
+
+        /* Benefits Comparison */
+        .comparison-section { padding: 5rem 0; background-color: var(--color-purple); }
+        .benefits-comparison { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-top: 2rem; }
+        @media (min-width: 992px) { .benefits-comparison { grid-template-columns: 1fr 1fr; align-items: stretch; } }
+        
+        .card-bad { background: var(--color-white); color: var(--color-text-dark); padding: 3rem 2rem; border-radius: 20px; }
+        .card-bad h3 { color: #d32f2f; margin-bottom: 2rem; }
+        .card-bad h3::before { content: "✖"; background: #d32f2f; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem; font-size: 2rem; }
+        
+        .card-good { background: var(--color-purple-dark); border: 2px solid #a855f7; padding: 3rem 2rem; border-radius: 20px; position: relative; box-shadow: 0 0 40px rgba(168, 85, 247, 0.15); }
+        .card-good-img { background: linear-gradient(135deg, var(--color-purple), #4a2c91); border-radius: 12px; padding: 1.2rem; text-align: center; margin: -4.5rem auto 2rem; width: 85%; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+
+        .bullet-list { list-style: none; }
+        .bullet-list li { margin-bottom: 1.2rem; display: flex; gap: 12px; font-weight: 600; font-size: 1.05rem; line-height: 1.4; }
+
+        /* Testimonials */
+        .testimonial-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem; }
+        @media (min-width: 768px) { .testimonial-grid { grid-template-columns: repeat(2, 1fr); } }
+        .testimonial-card { background: var(--color-white); color: var(--color-text-dark); padding: 2.5rem 2rem; border-radius: 16px; text-align: center; display: flex; flex-direction: column; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .testimonial-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.2rem; border: 4px solid var(--color-purple); }
+
+        /* Deliverables & Agents */
+        .master-card { border: 3px solid var(--color-gold); background: rgba(255, 255, 255, 0.05); padding: 3.5rem 2rem; border-radius: 20px; text-align: center; margin-bottom: 3rem; }
+        .agent-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 768px) { 
+            .agent-grid { grid-template-columns: repeat(3, 1fr); } 
+            .deliverables-grid { grid-template-columns: repeat(6, 1fr); }
+            .deliverables-grid > div { grid-column: span 2; }
+            .deliverables-grid > div:nth-child(4), .deliverables-grid > div:nth-child(6) { grid-column: 2 / 4; }
+            .deliverables-grid > div:nth-child(5), .deliverables-grid > div:nth-child(7) { grid-column: 4 / 6; }
+        }
+        .agent-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 2.5rem 1.5rem; border-radius: 16px; text-align: center; transition: var(--transition); display: flex; flex-direction: column; position: relative; }
+        .agent-card:hover { transform: translateY(-8px); border-color: var(--color-gold); background: rgba(255, 255, 255, 0.08); }
+        .agent-card-icon { font-size: 1.4rem; margin-bottom: 0.6rem; opacity: 1; display: block; }
+        .drip-note { font-size: 0.85rem; color: var(--color-gold); font-weight: 700; margin-top: auto; padding-top: 1rem; display: block; }
+
+        /* Bonus Card Visual */
+        .bonus-card { border-top: 5px solid var(--color-gold); background: var(--color-white); color: var(--color-text-dark); padding: 2.5rem 2rem; transition: background 0.3s ease; }
+        .bonus-card:hover { background: #faf9f6; }
+        .bonus-card h4 { color: var(--color-purple); font-size: 1.2rem; }
+        .bonus-card-icon { font-size: 1.4rem; margin-bottom: 0.8rem; display: block; }
+
+        /* Pricing Table */
+        .pricing-section { background-color: var(--color-beige); color: var(--color-text-dark); padding: 5rem 1.5rem; }
+        .pricing-table { background: linear-gradient(145deg, #1f124d, #110934); color: white; border: 2px solid var(--color-gold); border-radius: 20px; padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 2.5rem); max-width: 700px; margin: 0 auto; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+        .pricing-table::before { content: "EL VALOR REAL DEL SISTEMA"; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--color-gold); color: var(--color-purple-dark); padding: 8px 25px; border-radius: 30px; font-weight: 800; font-size: clamp(0.7rem, 2.5vw, 0.85rem); white-space: nowrap; letter-spacing: 1px; }
+        .pricing-list { list-style: none; margin-bottom: 2rem; border-bottom: 2px dashed rgba(255,255,255,0.2); padding-bottom: 2rem; }
+        .pricing-list li { display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: clamp(0.85rem, 3.5vw, 1.15rem); gap: 10px; align-items: flex-end; }
+        .cost-red { color: #ff4d4d; font-weight: 800; white-space: nowrap; }
+        .price-final { color: var(--color-green); font-size: clamp(4rem, 10vw, 6rem); font-weight: 800; margin: 1rem 0; line-height: 1; text-shadow: 0 0 30px rgba(0, 200, 81, 0.4); }
+        
+        .red-strike-container { display: inline-block; position: relative; }
+        .red-strike-line { position: absolute; left: 0; top: 50%; width: 100%; height: 4px; background: #ff4d4d; transform: rotate(-3deg); border-radius: 2px; }
+
+        /* FAQ */
+        .accordion-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+        .accordion-header { width: 100%; text-align: left; padding: 1.5rem; background: none; border: none; color: white; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: 0.4s ease-in-out; padding: 0 1.5rem; }
+
+        /* Buttons */
+        .btn { display: inline-block; background: var(--color-green); color: white; font-weight: 800; text-transform: uppercase; padding: clamp(1.2rem, 4vw, 1.8rem) clamp(1rem, 5vw, 3.5rem); border-radius: 60px; font-size: clamp(1rem, 4vw, 1.3rem); cursor: pointer; border: none; width: 100%; max-width: 550px; transition: var(--transition); box-shadow: 0 15px 30px rgba(0, 200, 81, 0.3); text-decoration: none; text-align: center; line-height: 1.3; }
+        .btn:hover { transform: scale(1.04); background: var(--color-green-hover); box-shadow: 0 20px 40px rgba(0, 200, 81, 0.5); }
+
+        /* Utilities */
+        .guarantee-badge { width: 180px; height: 180px; background: var(--color-gold); color: var(--color-purple); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 2.5rem; font-weight: 800; box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3); border: 5px solid rgba(255,255,255,0.3); }
+        .disclaimer { font-size: 0.85rem; opacity: 0.8; margin-top: 1rem; }
+        
+        .bg-orange-urgent { background-color: var(--color-orange); color: white; padding: 3rem 1.5rem; }
+        .options-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 2rem 0; }
+        @media (min-width: 768px) { .options-grid { grid-template-columns: 1fr 1fr; } }
+        .option-card { padding: 2.2rem; border-radius: 20px; border: 2px solid; text-align: left; }
+        .option-b { border-color: var(--color-green); background: rgba(0, 200, 81, 0.1); }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1371238638334379');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1371238638334379&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div>
+                <h1>Accede a las <span class="text-highlight">2 Unicas Herramientas de IA</span> que Necesitas Hoy para Vender en Automático Sin Mostrar tu Cara.</h1>
+                
+                <p style="color: var(--color-gold); font-weight: 700; font-size: 1.15rem; margin-bottom: 1.5rem; line-height: 1.5;">Ideal para profesionales, freelancers o dueños de negocio que quieren crear ingresos digitales sin depender de vender más horas de su tiempo.</p>
+                
+                <h2>Si hoy estás atorado, distraído o no sabes qué vender, aquí tienes un sistema paso a paso que te guía para convertir tu conocimiento en un producto digital vendible y lanzarlo con orden. <span class="text-highlight" style="font-weight: 700;">Sin improvisar. Sin mentores costosos. Sin vender tu tiempo por dinero.</span></h2>
+                
+                <ul style="list-style: none; margin: 1.5rem 0; padding: 0; text-align: left; font-size: 1.05rem;">
+                    <li style="margin-bottom: 0.8rem; display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--color-green);">✅</span> <span><strong>Define qué vender y a quién:</strong> En lugar de quedarte pensando.</span></li>
+                    <li style="margin-bottom: 0.8rem; display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--color-green);">✅</span> <span><strong>Arma tu oferta y precio:</strong> Sin adivinar ni copiar a otros.</span></li>
+                    <li style="margin-bottom: 0.8rem; display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--color-green);">✅</span> <span><strong>Ejecuta con pasos claros:</strong> Para avanzar aunque tengas poco tiempo.</span></li>
+                    <li style="margin-bottom: 0.8rem; display: flex; gap: 10px; align-items: flex-start;"><span style="color: var(--color-green);">✅</span> <span><strong>Construye un sistema repetible:</strong> Para vender a diez o a mil sin “más horas”.</span></li>
+                </ul>
+                
+                <div style="margin-top: 2.5rem; max-width: 550px; text-align: center;">
+                    <a href="#oferta-principal" class="btn checkout-btn" style="padding: 1.5rem 2.5rem; font-size: clamp(1.1rem, 3vw, 1.3rem); white-space: normal;" onclick="if(window.fbq)fbq('track', 'InitiateCheckout');">QUIERO MI SEGUNDA FUENTE</a>
+                    <p class="disclaimer text-bold" style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem; color: var(--color-white);">Acceso inmediato. Sin mensualidades. Sin pagos ocultos.</p>
+                    <p class="disclaimer" style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.85rem; color: var(--color-white); line-height: 1.4;">Nota: Aquí obtienes el sistema y los pasos para construir y lanzar tu producto. Los resultados dependen de tu ejecución y mercado.</p>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://productohackeria.hackerdeingresos.com/img-webp/mockup-hero.webp" alt="Mockup del Sistema ProductoHacker IA con prompts, agentes y bonos" width="550" height="550" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- INTRO / SOLUTION GRID -->
+        <section class="container">
+            <div class="intro-grid">
+                <div class="intro-card">
+                    <span style="font-size: 3rem; margin-bottom: 1rem;">🤯</span>
+                    <h3 style="color: var(--color-orange); font-family: 'Montserrat', sans-serif; margin-bottom: 1rem;">El Problema</h3>
+                    <p>¿Te abrumas con tanta información? ¿Sientes que necesitas años de experiencia, un equipo completo y miles de dólares en mentores para empezar?</p>
+                </div>
+                <div class="intro-card">
+                    <span style="font-size: 3rem; margin-bottom: 1rem;">📉</span>
+                    <h3 style="color: #ff4d4d; font-family: 'Montserrat', sans-serif; margin-bottom: 1rem;">La Realidad</h3>
+                    <p>La cruda realidad es que el <strong style="color: #ff4d4d;">90% de los emprendedores digitales fracasan</strong> porque intentan hacer todo solos, sin las herramientas correctas.</p>
+                </div>
+                <div class="intro-card intro-card-gold">
+                    <span style="font-size: 3rem; margin-bottom: 1rem;">🤖✨</span>
+                    <h3 style="color: var(--color-gold); font-family: 'Montserrat', sans-serif; margin-bottom: 1rem;">La Solución</h3>
+                    <p>Imagina tener un <strong class="text-highlight">ejército de especialistas</strong> trabajando para ti 24/7:</p>
+                    <ul class="gold-list">
+                        <li>✅ Ideas de Negocio Rentables</li>
+                        <li>✅ Validador de Mercado Express</li>
+                        <li>✅ Arquitecto de Productos Pro</li>
+                        <li>✅ Especialista en Pricing</li>
+                        <li>✅ Estratega de Marketing Hacker</li>
+                    </ul>
+                </div>
+            </div>
+            <h2 class="text-center" style="font-size: clamp(1.5rem, 4vw, 2.5rem); margin-top: 3rem; font-weight: 800;">Eso es exactamente lo que obtienes con <br><span class="text-highlight" style="text-decoration: underline;">ProductoHacker IA.</span></h2>
+        </section>
+
+        <!-- COMPARISON SECTION -->
+        <section class="comparison-section">
+            <div class="container">
+                <div class="benefits-comparison">
+                    <div class="card-bad">
+                        <h3 class="text-center">Otros métodos:</h3>
+                        <ul class="bullet-list">
+                            <li><span style="color: #d32f2f;">✖</span> <span>Te llenan de teoría compleja, pero no sabes cómo aplicarla.</span></li>
+                            <li><span style="color: #d32f2f;">✖</span> <span>Cursos interminables que nunca terminas de ver.</span></li>
+                            <li><span style="color: #d32f2f;">✖</span> <span>Pierdes semanas creando un producto que no sabes si venderá.</span></li>
+                            <li><span style="color: #d32f2f;">✖</span> <span>Colapsas por la tecnología compleja y abandonas el proyecto.</span></li>
+                            <li><span style="color: #d32f2f;">✖</span> <span>Dependencia total de freelancers caros y equipos costosos.</span></li>
+                            <li><span style="color: #d32f2f;">✖</span> <span>Inviertes meses para un producto que nadie quiere comprar.</span></li>
+                        </ul>
+                    </div>
+                    <div class="card-good">
+                        <div class="card-good-img">
+                            <span style="font-size: 3rem;">🚀✨</span>
+                            <div style="color: white; margin-top: 0.5rem; font-size: 1.3rem; font-family: 'Montserrat', sans-serif; font-weight: bold;">ProductoHacker IA</div>
+                        </div>
+                        <h3 class="text-center" style="color: #d8b4fe; margin-bottom: 2rem;">Con ProductoHacker IA Lograrás:</h3>
+                        <ul class="bullet-list">
+                            <li><span style="color: var(--color-green);">✔</span> <span><span style="color: var(--color-green); text-decoration: underline;">Sistema completo funcionando en una tarde</span> - Sin meses de espera.</span></li>
+                            <li><span style="color: var(--color-green);">✔</span> <span>Escalera de Productos Profesional.</span></li>
+                            <li><span style="color: var(--color-green);">✔</span> <span>Sistema de ventas configurado en menos de 2 horas.</span></li>
+                            <li><span style="color: var(--color-green);">✔</span> <span>Contenido de Instagram por meses generado automáticamente.</span></li>
+                            <li><span style="color: var(--color-green);">✔</span> <span>Validación instantánea de ideas antes de invertir tiempo.</span></li>
+                            <li><span style="color: var(--color-green);">✔</span> <span>Libertad total de equipos costosos - IA trabaja 24/7 sin salarios.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MINI BLOCK PRE-DELIVERABLES -->
+        <section class="bg-purple text-center" style="padding: 4rem 1.5rem 1rem;">
+            <div class="container" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--color-white);">La mayoría no falla por falta de ideas.</p>
+                <p style="font-size: 1.4rem; font-weight: 600; margin-bottom: 0.8rem; color: #ff4d4d;">Falla por falta de estructura y pasos claros.</p>
+                <p style="font-size: 1.6rem; font-weight: 800; color: var(--color-gold);">Aquí entras sin claridad y sales con un plan y una oferta lista.</p>
+            </div>
+        </section>
+
+        <!-- DELIVERABLES -->
+        <section class="container" style="padding-top: 5rem;">
+            <h3 class="text-center" style="margin-bottom: 3rem; font-size: 2.2rem;">🎁 Lo Que Obtienes Hoy:</h3>
+            <div class="master-card">
+                <span style="font-size: 4rem; display: block; margin-bottom: 1rem;">⚡ 🤖</span>
+                <h3 style="font-size: 1.8rem;">17 Prompts Maestros + 7 Agentes IA</h3>
+                <p style="font-size: 1.2rem; opacity: 0.9;">El corazón del sistema. Tu ejército de Especialistas en diseñar tu Negocio Digital paso a paso, con comandos exactos listos para activarlos.</p>
+            </div>
+            <div class="agent-grid deliverables-grid">
+                <div class="agent-card">
+                    <span class="agent-card-icon">🤖</span>
+                    <h4>✅ Agente 1: Hacker de Oportunidades</h4>
+                    <p>Ideas rentables de inmediato.</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-card-icon">🤖</span>
+                    <h4>✅ Agente 2: Validador HackerIA</h4>
+                    <p>Analiza la demanda real en minutos.</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-card-icon">🤖</span>
+                    <h4>✅ Agente 3: Arquitecto ProductoHacker</h4>
+                    <p>Diseña tu escalera de productos.</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-card-icon">🤖</span>
+                    <h4>✅ Agente 4: PricingMaster</h4>
+                    <p>Calcula el precio perfecto para maximizar conversión y rentabilidad.</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-card-icon">🤖</span>
+                    <h4>✅ Agente 5: Estratega HackerPro</h4>
+                    <p>Crea las tácticas de marketing más actualizadas para tu nicho.</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-card-icon">🤖</span>
+                    <h4>✅ Agente 6: Multiplicador de Contenido</h4>
+                    <p>Genera meses de contenido profesional para Redes Sociales en minutos.</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-card-icon">🤖</span>
+                    <h4>✅ Agente 7: Creador de Copy para Páginas de Ventas</h4>
+                    <p>Crea el copy para páginas de ventas, upsells, downsells, order bumps y VSL listas para convertir.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BONUSES -->
+        <section class="container" style="padding-bottom: 5rem;">
+            <h3 class="text-center" style="margin: 4rem 0 3rem; font-size: 2rem;">🎁 BONUSES EXCLUSIVOS</h3>
+            <div class="agent-grid">
+                <div class="agent-card bonus-card">
+                    <span class="bonus-card-icon">🎁</span>
+                    <h4>✅ BONO 1: Setup Embudo Completo</h4>
+                    <p><span class="cost-red" style="text-decoration: line-through;">*(Valor: $97)*</span> <span class="cost-red">GRATIS</span></p>
+                    <p>Tu página web y sistema de ventas listos sin complicaciones para vender 24/7.</p>
+                </div>
+                <div class="agent-card bonus-card">
+                    <span class="bonus-card-icon">🎁</span>
+                    <h4>✅ BONO 2: Búnker Digital de Prompts</h4>
+                    <p><span class="cost-red" style="text-decoration: line-through;">*(Valor: $67)*</span> <span class="cost-red">GRATIS</span></p>
+                    <p>Más de 50 comandos extra para dominar el mercado.</p>
+                </div>
+                <div class="agent-card bonus-card">
+                    <span class="bonus-card-icon">🎁</span>
+                    <h4>✅ BONO 3: Sistema de Libros Digitales</h4>
+                    <p><span class="cost-red" style="text-decoration: line-through;">*(Valor: $47)*</span> <span class="cost-red">GRATIS</span></p>
+                    <p>Crea Libros y Guías PDF en minutos.</p>
+                </div>
+                <div class="agent-card bonus-card">
+                    <span class="bonus-card-icon">🎁</span>
+                    <h4>✅ BONO 4: Portadas Épicas con IA</h4>
+                    <p><span class="cost-red" style="text-decoration: line-through;">*(Valor: $37)*</span> <span class="cost-red">GRATIS</span></p>
+                    <p>Diseños que atraen clics usando psicología visual.</p>
+                </div>
+                <div class="agent-card bonus-card">
+                    <span class="bonus-card-icon">🎁</span>
+                    <h4>✅ BONO 5: Masterclass Conecta Todo</h4>
+                    <p><span class="cost-red" style="text-decoration: line-through;">*(Valor: $197)*</span> <span class="cost-red">GRATIS</span></p>
+                    <p>Te revelo el flujo paso a paso para conectar a todos tus agentes correctamente.</p>
+                </div>
+                <div class="agent-card bonus-card">
+                    <span class="bonus-card-icon">🎁</span>
+                    <h4>✅ BONO 6: Bóveda Secreta Visual</h4>
+                    <p><span class="cost-red" style="text-decoration: line-through;">*(Valor: $97)*</span> <span class="cost-red">GRATIS</span></p>
+                    <p>Guía visual de todo el método paso a paso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section class="pricing-section" id="oferta-principal">
+            <div class="container text-center">
+                <h3 style="margin-bottom: 2.5rem; font-size: 2rem;">💡 El Valor Real vs Tu Inversión:</h3>
+                <div class="pricing-table">
+                    <p class="text-bold" style="margin-bottom: 2rem; font-size: 1.2rem;">Si tuvieras que contratar a cada especialista por separado:</p>
+                    <ul class="pricing-list">
+                        <li><span>- Consultor de Productos:</span> <span class="cost-red">$2,000/mes</span></li>
+                        <li><span>- Validador de Mercado:</span> <span class="cost-red">$500/consulta</span></li>
+                        <li><span>- Estratega de Marketing:</span> <span class="cost-red">$3,000/mes</span></li>
+                        <li><span>- Diseñador & Técnico:</span> <span class="cost-red">$2,000/setup</span></li>
+                        <li><span>- Bonos Exclusivos (x6):</span> <span class="cost-red">$445/valor</span></li>
+                    </ul>
+                    <div>
+                        <p style="font-size: 1.4rem; margin-bottom: 1rem;">VALOR TOTAL: <span class="cost-red" style="text-decoration: line-through;">Casi $8,000 USD</span></p>
+                        <p style="font-size: 1.2rem; opacity: 0.9;">Precio Regular de este Sistema: <span class="red-strike-container">$297 <span class="red-strike-line"></span></span></p>
+                        
+                        <div style="background: rgba(255,255,255,0.05); border: 2px dashed var(--color-green); border-radius: 15px; padding: 2rem; margin-top: 2.5rem;">
+                            <p class="text-bold" style="font-size: clamp(1.1rem, 4vw, 1.4rem); color: var(--color-gold);">🎁 OFERTA DE LANZAMIENTO:</p>
+                            <div class="price-final">$9</div>
+                            <a href="https://pay.hotmart.com/B104681956G?checkoutMode=10" class="btn checkout-btn" onclick="if(window.fbq)fbq('track', 'InitiateCheckout');">Obtener Producto Hacker IA</a>
+                            <p class="disclaimer">Nota: Acceso inmediato a los 17 Prompts, los Agentes y los Bonos Exclusivos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="container max-w-800" style="padding: 5rem 1.5rem;">
+            <h3 class="text-center" style="margin-bottom: 3rem; font-size: 2rem;">❓ Preguntas Frecuentes:</h3>
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">¿Necesito experiencia técnica previa? <span>+</span></button>
+                <div class="accordion-content"><p style="padding-bottom: 1.5rem;">Para nada. Los 17 Prompts están diseñados para que cualquier persona pueda seguir el sistema paso a paso. Es copiar y pegar.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">¿En cuánto tiempo recibo el producto? <span>+</span></button>
+                <div class="accordion-content"><p style="padding-bottom: 1.5rem;">El acceso es inmediato. Una vez confirmado tu pago, recibirás al instante un correo electrónico con tus credenciales para acceder a la plataforma.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">¿Cuánto tiempo toma ver resultados? <span>+</span></button>
+                <div class="accordion-content"><p style="padding-bottom: 1.5rem;">El sistema está diseñado para tener tu primer producto funcionando en una tarde. La implementación completa puede tomar de 1 a 7 días máximo.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">¿Funciona para cualquier tipo de nicho? <span>+</span></button>
+                <div class="accordion-content"><p style="padding-bottom: 1.5rem;">Sí. Los principios son universales y los Agentes IA adaptan las respuestas a tu mercado específico.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">¿Qué pasa si no sé usar herramientas de IA? <span>+</span></button>
+                <div class="accordion-content"><p style="padding-bottom: 1.5rem;">Incluimos una Guía Maestra que te lleva de la mano paso a paso. Los prompts están listos para copiar y pegar directamente en las herramientas recomendadas.</p></div>
+            </div>
+        </section>
+
+        <!-- 15. CTA #2 -->
+        <section class="bg-purple text-center" style="padding: 4rem 1.5rem;">
+            <div class="container">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.6rem;">🚀 Último Llamado: Obtén Tu Sistema Completo</h3>
+                <a href="#oferta-principal" class="btn checkout-btn" style="padding: 2.2rem; font-size: 1.4rem;" onclick="if(window.fbq)fbq('track', 'InitiateCheckout');">SÍ, QUIERO EL SISTEMA</a>
+            </div>
+        </section>
+
+        <!-- 16. DEEP DIVE -->
+        <section class="bg-purple" style="padding: 4rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="container max-w-800" style="text-align: justify;">
+                <h3 class="text-center" style="margin-bottom: 2.5rem;">🔬 Por Qué Esto Funciona (La Ciencia Detrás):</h3>
+                <p>El problema de la mayoría de emprendedores no es falta de ideas, es falta de sistema y ejecución estructurada.</p>
+                <p style="margin-top: 1rem;">Los 17 Prompts Maestros fueron diseñados después de analizar más de 500 casos de éxito en productos digitales. Cada prompt activa un "agente especializado" que ejecuta una tarea específica del proceso completo.</p>
+                <p style="margin-top: 1rem;">Es como tener el cerebro colectivo de los mejores estrategas de productos digitales trabajando para ti simultáneamente.</p>
+            </div>
+        </section>
+
+        <!-- 17. FINAL DECISION SECTION -->
+        <section class="bg-purple text-center" style="padding: 6rem 1.5rem; padding-bottom: 8rem;">
+            <div class="container max-w-800">
+                <h3 style="font-size: 2.2rem; margin-bottom: 1rem;">🎯 La realidad es esta:</h3>
+                <p style="margin-bottom: 3rem; font-size: 1.2rem;">Puedes seguir haciendo lo que la mayoría hace.</p>
+                
+                <div class="options-grid">
+                    <div class="option-card" style="border-color: rgba(255,255,255,0.2); opacity: 0.8;">
+                        <h4 style="text-align: center; color: #ff4d4d; font-size: 1.5rem; margin-bottom: 1.5rem;">Opción A</h4>
+                        <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+                            Seguir intentando hacerlo todo solo.<br>
+                            Seguir viendo tutorial tras tutorial.<br>
+                            Seguir dudando si tu idea realmente funcionará.<br>
+                            Seguir contratando freelancers que no entienden tu visión.
+                        </p>
+                        <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+                            <strong>Mientras tanto:</strong><br>
+                            Cada día sin sistema es dinero que no entra.<br>
+                            Cada semana sin claridad es una oportunidad que alguien más está monetizando.<br>
+                            Cada mes improvisando es facturación perdida que jamás se recupera.
+                        </p>
+                        <p style="color: #ff4d4d; font-weight: 700; line-height: 1.6;">
+                            Eso sí es caro.<br>
+                            No son $9 dólares.<br>
+                            Es el precio de seguir estancado.
+                        </p>
+                    </div>
+                    
+                    <div class="option-card option-b" style="border-color: var(--color-green);">
+                        <h4 style="text-align: center; color: var(--color-green); font-size: 1.5rem; margin-bottom: 1.5rem;">Opción B</h4>
+                        <p style="line-height: 1.8;">
+                            Invertir $9 dólares.<br><br>
+                            Activar tu ejército de Agentes IA especializados.<br><br>
+                            Tener tu estructura funcionando antes de que termine el día.<br><br>
+                            Pasar de <em>"quiero empezar"</em> a <strong>"ya estoy operando"</strong>.<br><br>
+                            Dejar de improvisar y comenzar a ejecutar con estrategia.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 4rem; margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">🔥 Tú decides:</h3>
+                    <p style="font-size: 1.15rem; margin-bottom: 1rem;">Mientras otros siguen dudando, tú ya estás ejecutando.</p>
+                    <p style="font-size: 1.15rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                        Puedes gastar 9 dólares en algo que olvides mañana...<br>
+                        O puedes usarlos para construir el sistema que te genere ingresos durante años.
+                    </p>
+                    <p style="font-size: 1.3rem; margin-bottom: 2rem; font-weight: 800; color: var(--color-gold); line-height: 1.5;">
+                        9 dólares no cambian tu vida.<br>
+                        Pero una decisión estratégica sí.
+                    </p>
+                    <hr style="border: none; border-top: 1px dashed rgba(255,255,255,0.2); width: 50%; margin: 2rem auto;">
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem;">El tiempo ya está corriendo.</p>
+                    <p style="font-size: 1.3rem; font-weight: 700; line-height: 1.6;">
+                        La pregunta no es si vale 9 dólares.<br>
+                        <span style="color: var(--color-green); text-decoration: underline; text-underline-offset: 4px;">La pregunta es cuánto te está costando no hacerlo.</span>
+                    </p>
+                </div>
+
+                <div style="max-width: 550px; margin: 0 auto; text-align: center;">
+                    <a href="#oferta-principal" class="btn checkout-btn" style="padding: 2rem 1.5rem; font-size: clamp(1.2rem, 3vw, 1.4rem); white-space: normal;" onclick="if(window.fbq)fbq('track', 'InitiateCheckout');">DEJO DE POSTERGAR</a>
+                    
+                    <p class="disclaimer text-bold" style="margin-top: 1.5rem; opacity: 1; font-size: 1rem; color: var(--color-white);">
+                        *Acceso inmediato • 15 días de garantía • Solo $9 USD*
+                    </p>
+                    <p class="disclaimer" style="margin-top: 0.8rem; font-style: italic; opacity: 0.7; font-size: 0.9rem;">
+                        Mientras lees esto, alguien más ya está implementando su sistema...
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 4rem 0; text-align: center; opacity: 0.5; font-size: 0.8rem;">
+        <p>&copy; 2026 ProductoHacker IA. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleAccordion(btn) {
+            const content = btn.nextElementSibling;
+            const isOpen = content.style.maxHeight;
+            document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+            document.querySelectorAll('.accordion-header span').forEach(s => s.innerText = '+');
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                btn.querySelector('span').innerText = '-';
+            }
+        }
+    </script>
+</body>
+</html>
